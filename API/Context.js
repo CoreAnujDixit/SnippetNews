@@ -12,8 +12,6 @@ const Context = ({ children }) => {
   //   Fetching News
   const fetchNews = async () => {
     const apiUrl = getNewsAPI(category);
-    console.log("API URL:", apiUrl);
-
     try {
       const { data } = await axios.get(apiUrl);
       console.log("API Response:", data);

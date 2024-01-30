@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Dimensions, Image } from "react-native";
+import { View, Text, StyleSheet, Dimensions, Image, ImageBackground } from "react-native";
 import React from "react";
 import { Linking } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
@@ -24,10 +24,14 @@ const logo = <Text>
       <Text style={styles.title}>{item.title.slice(0, 70)}{item.title.length > 40 ? '...' : ''}</Text>
       <Text style={styles.desc}>{item.description}</Text>
       <Text style={{...styles.auth}}>Snippet by {item.author === null ? logo  : item.author}</Text>
-      <Text style={{...styles.url,color: '#DC84F3'}}
+      {/* Image bg */}
+      <ImageBackground style={styles.footer} blurRadius={30} source={{uri : item.urlToImage}}>
+      <Text style={{...styles.url,color: '#fff'}}
       onPress={() => Linking.openURL(item.url)}>
-        Link <Entypo name="link" size={24} color="#DC84F3" />
+        Link <Entypo name="link" size={24} color="#fff" />
 </Text>
+      </ImageBackground>
+      
     </View>
   );
 }
@@ -64,9 +68,17 @@ const styles = StyleSheet.create({
   }, 
   url:{
     fontFamily: "outfit-bold",
-    marginTop: 50,
+    marginTop: 25,
     fontSize: 24,
     textAlign: 'center',
-    color: "#DC84F3"
+    textShadowRadius: 100,
+    textShadowColor: "blue",
   },
+  footer:{
+    bottom: 0,
+    height: 135,
+    marginTop: 17,
+    position: "absolute",
+    width: "100%",
+  }
 });
