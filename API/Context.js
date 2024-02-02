@@ -6,22 +6,34 @@ export const NewsContext = createContext();
 
 const Context = ({ children }) => {
   const [news, setNews] = useState([]);
-  const [category, setCategory] = useState("general");
+  const [category, setCategory] = useState("code-eka");
   const [index, setIndex] = useState(1);
 
   //   Fetching News
   const fetchNews = async () => {
     const apiUrl = getNewsAPI(category);
+  
     try {
       const { data } = await axios.get(apiUrl);
       console.log("API Response:", data);
-      setNews(data);
-      setIndex(1);
+      
+      // Check if the response has articles
+      if (data.articles) {
+        setNews(data);
+        setIndex(1);
+      } else {
+        console.error("No articles found in the API response:", data);
+      }
     } catch (error) {
       console.error("Error fetching news:", error);
+  
+      // Check for specific 400 error
+      if (error.response && error.response.status === 400) {
+        console.error("Bad request - check your API key or request parameters");
+      }
     }
   };
-
+  
   useEffect(() => {
     fetchNews();
   }, [category]);
