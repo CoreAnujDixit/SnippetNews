@@ -10,6 +10,6 @@ export const BASE_URL = "https://newsapi.org/v2";
 
 export const getNewsAPI = (keyword) => {
   const apiKey = "d2b2c276234c440db00653c7820257e1";
-  return `${BASE_URL}/everything?apiKey=${apiKey}${keyword ? `&q=${encodeURIComponent("everything")}` : ''}`;
+  return `${BASE_URL}/everything?apiKey=${apiKey}${keyword ? `&q=${encodeURIComponent("technology")}` : ''}`;
 };
 

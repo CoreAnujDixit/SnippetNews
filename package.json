@@ -9,21 +9,22 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/metro-runtime": "~3.1.1",
     "@expo/vector-icons": "^14.0.0",
     "axios": "^1.6.7",
+    "deprecated-react-native-prop-types": "^5.0.0",
     "expo": "~50.0.4",
+    "expo-font": "~11.10.2",
     "expo-status-bar": "~1.11.1",
     "i": "^0.3.7",
     "npm": "^10.4.0",
     "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-native": "0.73.2",
     "react-native-pager-view": "6.2.3",
     "react-native-snap-carousel": "^3.9.1",
     "react-native-tab-view": "^3.5.2",
-    "expo-font": "~11.10.2",
-    "react-native-web": "~0.19.6",
-    "react-dom": "18.2.0",
-    "@expo/metro-runtime": "~3.1.1"
+    "react-native-web": "~0.19.6"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
